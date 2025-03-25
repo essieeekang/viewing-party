@@ -63,3 +63,16 @@ def test_genre_is_None_if_empty_watched():
 
     # Assert
     assert popular_genre == None
+
+def test_return_first_instance_of_most_watched_when_tied():
+    # Arrange
+    tied_data_1 = {"watched": [FANTASY_1, FANTASY_2, ACTION_1, ACTION_2, FANTASY_3, ACTION_3]}
+    tied_data_2 = {"watched": [FANTASY_1, FANTASY_2, ACTION_1, ACTION_2, ACTION_3, FANTASY_3]}
+
+    # Act
+    popular_genre_1 = get_most_watched_genre(tied_data_1)
+    popular_genre_2 = get_most_watched_genre(tied_data_2)
+
+    # Assert
+    assert popular_genre_1 == "Fantasy"
+    assert popular_genre_2 == "Action"
