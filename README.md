@@ -335,7 +335,7 @@ Note: For Waves 2, 3, 4, and 5, your implementation of each of the functions sho
     - Each item in `"friends"` is a dictionary. This dictionary has a key `"watched"`, which has a list of movie dictionaries.
     - Each movie dictionary has a `"title"`.
 - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies at least one of the user's friends have watched, but the user has not watched.
-- Return a list of dictionaries, that represents a list of movies
+- Return a list of dictionaries, that represents a list of movies--
 
 ### Wave 4
 

@@ -64,7 +64,17 @@ def get_most_watched_genre(user_data):
 # -----------------------------------------
 # ------------- WAVE 3 --------------------
 # -----------------------------------------
-
+def get_unique_watched(user_data):
+    friends_movies = set() #no duplicates
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            friends_movies.add(movie["title"])
+            
+    unique_movies = []
+    for movie in user_data["watched"]:
+        if movie["title"] not in friends_movies:
+            unique_movies.append(movie)
+    return unique_movies
         
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
