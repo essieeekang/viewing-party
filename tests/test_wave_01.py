@@ -99,6 +99,18 @@ def test_adds_movie_to_non_empty_user_watched():
     assert movie in updated_data["watched"]
     assert FANTASY_2 in updated_data["watched"]
 
+def test_does_not_add_duplicate_movie_to_user_watched():
+    # Arrange
+    user_data = {
+        "watched": [FANTASY_2]
+    }
+
+    # Act
+    updated_data = add_to_watched(user_data, FANTASY_2)
+
+    # Assert
+    assert len(updated_data["watched"]) == 1
+
 # @pytest.mark.skip()
 def test_adds_movie_to_user_watchlist():
     # Arrange
@@ -139,6 +151,18 @@ def test_adds_movie_to_non_empty_user_watchlist():
     assert len(updated_data["watchlist"]) == 2
     assert movie in updated_data["watchlist"]
     assert FANTASY_2 in updated_data["watchlist"]
+
+def test_does_not_add_duplicate_movie_to_user_watchlist():
+    # Arrange
+    user_data = {
+        "watchlist": [FANTASY_2]
+    }
+
+    # Act
+    updated_data = add_to_watchlist(user_data, FANTASY_2)
+
+    # Assert
+    assert len(updated_data["watchlist"]) == 1
 
 # @pytest.mark.skip()
 def test_moves_movie_from_watchlist_to_empty_watched():

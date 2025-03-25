@@ -12,11 +12,13 @@ def create_movie(title, genre, rating):
         return None
 
 def add_to_watched(user_data, movie):
-    user_data["watched"].append(movie)
+    if movie not in user_data["watched"]:
+        user_data["watched"].append(movie)
     return user_data
 
 def add_to_watchlist(user_data, movie):
-    user_data["watchlist"].append(movie)
+    if movie not in user_data["watchlist"]:
+        user_data["watchlist"].append(movie)
     return user_data
     
 def watch_movie(user_data, title):
